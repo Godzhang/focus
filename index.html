@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Focus</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		.container{position: absolute;top: 100px;left: 100px;width: 640px;height: 360px;}
+		.focus{width: 640px;height: 360px;overflow: hidden;}
+		.focus ul{position: relative;}
+		.focus ul li{position: absolute;top: 0;left: 0;width: 640px;height: 360px;overflow: hidden;}
+		.focus ul li img{width: 100%;}
+		.point{position: absolute;bottom: 10px;left: 0;width: 100%;height: 20px;text-align: center;font-size: 0;}
+		.point b{display: inline-block;width: 20px;height: 20px;border-radius: 50%;background: #fff;line-height: 100em;overflow: hidden;margin: 0 5px;cursor: pointer;}
+		.point b.act{background: #000;}
+		.arr{position: absolute;top: 50%;margin-top: -32px;width: 64px;height: 64px;}
+		.prev{left: 0;background: url(images/prev.png) 0 0 no-repeat;background-size: cover;}
+		.next{right: 0;background: url(images/next.png) 0 0 no-repeat;background-size: cover;}
+	</style>
+</head>
+<body>
+
+<div>
+
+<div class="container">
+	<div class="focus">
+		<ul id="list">
+			<li><a href="javascript:;"><img src="images/1.jpg" alt=""></a></li>
+			<li><a href="javascript:;"><img src="images/2.jpg" alt=""></a></li>
+			<li><a href="javascript:;"><img src="images/3.jpg" alt=""></a></li>
+			<li><a href="javascript:;"><img src="images/4.jpg" alt=""></a></li>
+		</ul>
+	</div>
+	<div class="point" id="point"></div>
+	<a href="javascript:;" class="arr prev" id="prev"></a>
+	<a href="javascript:;" class="arr next" id="next"></a>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+var list = document.getElementById("list"),
+	item = list.getElementsByTagName('li'),
+	point = document.getElementById("point"),
+	prev = document.getElementById("prev"),
+	next = document.getElementById("next");
+
+var focus = new Focus({
+	list: list,
+	item: item,
+	point: point,
+	prev: prev,
+	next: next
+})
+</script>
+</body>
+</html>
