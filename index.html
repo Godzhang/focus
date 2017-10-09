@@ -7,12 +7,12 @@
 	<style>
 		.container{position: absolute;top: 100px;left: 100px;width: 640px;height: 360px;}
 		.focus{width: 640px;height: 360px;overflow: hidden;}
-		.focus ul{position: relative;}
-		.focus ul li{position: absolute;top: 0;left: 0;width: 640px;height: 360px;overflow: hidden;}
+		.focus ul{position: relative;height: 360px;}
+		.focus ul li{position: absolute;top: 0;left: 0;width: 640px;height: 360px;overflow: hidden;display: none;}
 		.focus ul li img{width: 100%;}
-		.point{position: absolute;bottom: 10px;left: 0;width: 100%;height: 20px;text-align: center;font-size: 0;}
-		.point b{display: inline-block;width: 20px;height: 20px;border-radius: 50%;background: #fff;line-height: 100em;overflow: hidden;margin: 0 5px;cursor: pointer;}
-		.point b.act{background: #000;}
+		.point{position: absolute;bottom: -30px;left: 0;width: 100%;height: 20px;text-align: center;font-size: 0;}
+		.point b{display: inline-block;width: 20px;height: 20px;border-radius: 50%;background: #08c;line-height: 100em;overflow: hidden;margin: 0 5px;cursor: pointer;}
+		.point b.act{background: #ff7300;}
 		.arr{position: absolute;top: 50%;margin-top: -32px;width: 64px;height: 64px;}
 		.prev{left: 0;background: url(images/prev.png) 0 0 no-repeat;background-size: cover;}
 		.next{right: 0;background: url(images/next.png) 0 0 no-repeat;background-size: cover;}
@@ -49,7 +49,9 @@ var focus = new Focus({
 	item: item,
 	point: point,
 	prev: prev,
-	next: next
+	next: next,
+	time: 2000,
+	event: "mouseover"
 })
 </script>
 </body>
