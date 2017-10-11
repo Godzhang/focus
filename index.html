@@ -45,13 +45,13 @@ var list = document.getElementById("list"),
 	next = document.getElementById("next");
 
 var focus = new Focus({
-	list: list,
-	item: item,
-	point: point,
+	list: list,     //容器
+	item: item,     //容器子项
+	point: point,   //焦点容器
+	pointTag: 'b',  //焦点元素
 	prev: prev,
 	next: next,
-	time: 2000,
-	event: "mouseover"
+	time: 2000      //轮播间隔
 })
 </script>
 </body>

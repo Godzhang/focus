@@ -107,20 +107,40 @@
 			}
 			this.point.appendChild(frag);
 		},
+		// move: function(dis, fn){
+		// 	var self = this;
+		// 	clearInterval(this.moveTimer);
+		// 	this.moveTimer = setInterval(function(){
+		// 		var speed = (dis - self.list.offsetLeft) / 10;
+		// 		speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+		// 		self.list.style.left = self.list.offsetLeft + speed + "px";
+		// 		if(self.list.offsetLeft === dis){
+		// 			clearInterval(self.moveTimer);
+		// 			if(fn){
+		// 				fn();
+		// 			}
+		// 		}
+		// 	},20);
+		// },
 		move: function(dis, fn){
 			var self = this;
-			clearInterval(this.moveTimer);
+			clearInterval(this.moveTimer);  //清除定时器
+			var speed = (dis - self.list.offsetLeft) / 10;
 			this.moveTimer = setInterval(function(){
-				var speed = (dis - self.list.offsetLeft) / 10;
-				speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-				self.list.style.left = self.list.offsetLeft + speed + "px";
+
+				self.list.style.left = self.getLeft(self.list) + speed + "px";
+
 				if(self.list.offsetLeft === dis){
 					clearInterval(self.moveTimer);
 					if(fn){
 						fn();
 					}
 				}
-			},20);				
+			},20);
+		},
+		getLeft: function(elem){
+			var left = getComputedStyle(elem).left;
+			return Number(left.replace(/px/, ""));
 		},
 		pointEvent: function(){
 			var self = this;
